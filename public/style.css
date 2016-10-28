@@ -1,11 +1,11 @@
 body {
-  background: linear-gradient(#2079C7,#696969);
+  background-color: wheat;
   height: 1000px;
   width: 1000px;
   font-family: 'PT Sans Narrow', sans-serif;
 }
 
-.container {
+/*.container {
   display: flex;
   justify-content: center;
 }
@@ -33,33 +33,33 @@ body {
   border-radius: 20px;
   left: 15%;
   top: 25%;
-}
+}*/
 
 .results {
   overflow-y: auto;
-  text-align: center;
+/*  text-align: center;*/
   height: 300px;
   width: 400px;
-  background-color: rgb(229,206,188);
+/*  background-color: rgb(229,206,188);
   opacity: 0.8;
   position: absolute;
   border-radius: 20px;
   left: 45%;
-  top: 25%;
+  top: 25%;*/
 }
 
 .fit-list {
   overflow-y: auto;
-  font-weight: bold;
+ /* font-weight: bold;
   max-height: 95vh;
   text-align: center;
-  background-color: rgb(229,206,188);
-  width: 600px;
+  background-color: rgb(229,206,188);*/
+  width: 400px;
   height: 200px;
-  position: absolute;
+/*  position: absolute;
   left: 35%;
   top: 90%;
   margin:-100px 0 0 -200px;
   opacity: 0.8;
-  border-radius: 20px;
+  border-radius: 20px;*/
 }
