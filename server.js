@@ -5,6 +5,7 @@ const bodyParser = require("body-parser")
 const path  = require("path");
 const methodOverride = require("method-override");
 const dbService = require("./models/museumDB");
+const homeRouter = require("./routes/index.js")
 
 const app = express();
 const PORT = process.env[2] || process.env.PORT || 3000;
@@ -19,25 +20,27 @@ app.set('views', 'views');
 
 app.listen(PORT, () => console.warn("Server is running on port", PORT));
 
-app.get('/', dbService.getFavMuseum, (req, res) => {
-  res.render('index', {
-    museum: res.museum || [],
-    favorites: res.getFavMuseum || [],
-  });
-});
+app.use('/', homeRouter);
 
-app.post("/search", dbService.getFavMuseum, dbService.getMuseum, (req, res) => {
-  res.render('index', {
-    museum: res.museum,
-    favorites: res.getFavMuseum,
-  });
-  // res.json(res.museum);
-});
+// app.get('/', dbService.getFavMuseum, (req, res) => {
+//   res.render('index', {
+//     museum: res.museum || [],
+//     favorites: res.getFavMuseum || [],
+//   });
+// });
 
-app.post("/favorites", dbService.saveFavMuseum, (req, res) => {
-  res.redirect("/")
-});
+// app.post("/search", dbService.getFavMuseum, dbService.getMuseum, (req, res) => {
+//   res.render('index', {
+//     museum: res.museum,
+//     favorites: res.getFavMuseum,
+//   });
+//   // res.json(res.museum);
+// });
 
-app.delete("/favorites/:name", dbService.deleteFavMuseum, (req, res) => {
-  res.redirect("/")
-});
+// app.post("/favorites", dbService.saveFavMuseum, (req, res) => {
+//   res.redirect("/")
+// });
+
+// app.delete("/favorites/:name", dbService.deleteFavMuseum, (req, res) => {
+//   res.redirect("/")
+// });

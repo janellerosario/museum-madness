@@ -1,57 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Museum Madness | Visit All NYC Museums</title>
-  <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
-  <div class="header">
-    <h1>Museum Madness</h1>
-  </div>
-  <div class="search">
-    <h1>Search</h1>
-    <p>Search and add to your bucket list!<br>
-    Search by city: New York, Bronx, Queens, Long Island City, Brooklyn, or .....Staten Island</p>
-    <form action="/search" method="POST">
-      <input type="text" name="city" placeholder="Enter city"><br>
-      <input type="submit" value="search!">
-    </form>
-  </div>
-  <h1>Results</h1>
-  <div class="results">
-     <ul>
-      <% for( let i = 0; i < museum.length; i++) {%>
-        <h2>Museum Name: <%= museum[i].name %></h2>
-        <h2> Address: <%= museum[i].adress1 %></h2>
-        <h2> URL: <%= museum[i].url %></h2>
-        <form action="/favorites" method="post">
-          <input type="hidden" name="favorite[name]" value="<%= museum[i].name %>">
-          <input type="hidden" name="favorite[adress1]" value="<%= museum[i].adress1 %>">
-          <input type="hidden" name="favorite[url]" value="<%= museum[i].url %>">
-          <input type="submit" value="save">
-        </form>
-      <% }; %>
-      </ul>
-  </div>
-  <h1>My Bucket List</h1>
-  <div class="fit-list">
-    <ul>
-      <% for (let i = 0; i < favorites.length; i++) { %>
-        <li>
-          <p>Museum Name: <%= favorites[i].name %></p>
-          <p>Address: <%= favorites[i].adress1 %></p>
-          <p>URL: <%= favorites[i].url %></p>
-        </li>
-        <form action="/favorites/<%= favorites[i]._id %>?_method=DELETE" method="post">
-          <input type="submit" value="Delete">
-        </form>
-      <% }; %>
-    </ul>
-  </div>
-</div>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Home</h1>
+    <header>
+      <nav>
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Log In</a>
+      </nav>
+    </header>
+  </body>
 </html>
