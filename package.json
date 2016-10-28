@@ -1,0 +1,38 @@
+{
+  "name": "museum_madness",
+  "version": "1.0.0",
+  "description": "users add museums they want to visit to their lists",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janellerosario/museum-madness.git"
+  },
+  "keywords": [
+    "museums",
+    "new",
+    "york",
+    "nyc",
+    "art"
+  ],
+  "author": "Janelle Rosario",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janellerosario/museum-madness/issues"
+  },
+  "homepage": "https://github.com/janellerosario/museum-madness#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "method-override": "^2.3.6",
+    "mongodb": "^2.2.11",
+    "morgan": "^1.7.0",
+    "node-fetch": "^1.6.3",
+    "path": "^0.12.7"
+  }
+}
