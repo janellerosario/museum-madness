@@ -1,4 +1,4 @@
-require('dotenv').config();
+const dotEnv  = require('dotenv').config({silent: true});
 const express = require("express");
 const logger  = require("morgan");
 const bodyParser = require("body-parser");
@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const homeRouter = require("./routes/index.js");
 const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
-const museumRouter = require("./routes/museum");
+const museumRouter = require("./routes/museums");
 
 const app = express();
 const SECRET = 'tacos3000';
@@ -40,4 +40,4 @@ app.listen(PORT, () => console.warn("Server is running on port", PORT));
 app.use('/', homeRouter);
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
-app.use('/museum', museumRouter);
+app.use('/museums', museumRouter);

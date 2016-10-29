@@ -28,7 +28,7 @@
         <h2>Museum Name: <%= museum[i].name %></h2>
         <h2> Address: <%= museum[i].adress1 %></h2>
         <h2> URL: <%= museum[i].url %></h2>
-        <form action="museums/favorites" method="post">
+        <form action="/museums/favorites" method="POST">
           <input type="hidden" name="favorite[name]" value="<%= museum[i].name %>">
           <input type="hidden" name="favorite[adress1]" value="<%= museum[i].adress1 %>">
           <input type="hidden" name="favorite[url]" value="<%= museum[i].url %>">
@@ -46,12 +46,13 @@
           <p>Address: <%= favorites[i].adress1 %></p>
           <p>URL: <%= favorites[i].url %></p>
         </li>
-        <form action="/museums/favorites/<%= favorites[i]._id %>?_method=DELETE" method="post">
+        <form action="/museums/favorites/<%= favorites[i]._id %>?_method=DELETE" method="POST">
           <input type="submit" value="Delete">
         </form>
       <% }; %>
     </ul>
   </div>
 </div>
+<a href="/users/profile">Home</a>
 </body>
 </html>
