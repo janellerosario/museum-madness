@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Museum</title>
+  </head>
+  <body>
+    <h2>Museum Name: <%= museum[i].name %></h2>
+    <form class="edit" action="/<%= museum._id %>?_method=PUT" method="POST">
+      <input type="text" name="museum[name]" value="<%= museum.name %>">
+      <input type="submit" value="Update">
+    </form>
+  </body>
+</html>

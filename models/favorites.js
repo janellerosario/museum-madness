@@ -54,4 +54,21 @@ function deleteFavMuseum(req, res, next) {
   return false;
 };
 
-module.exports = { saveFavMuseum, getFavMuseum, deleteFavMuseum }
+function editMuseum(req, res, next) {
+    getDB().then((db) => {
+    db.collection('museums')
+      .findAndModify({ _id: ObjectID(req.params.id) }, [] /* sort */,
+      { $set: req.body.museum }, { new: true } /* options */, (updateError, doc) => {
+        if (updateError) return next(updateError);
+
+        // return the data
+        res.updated = doc;
+        db.close();
+        return next();
+      });
+    return false;
+  });
+  return false;
+}
+
+module.exports = { saveFavMuseum, getFavMuseum, deleteFavMuseum, editMuseum }

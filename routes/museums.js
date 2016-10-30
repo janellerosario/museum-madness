@@ -3,7 +3,8 @@ const { authenticate } = require('../lib/auth');
 const { getMuseum } = require('../services/museumDB');
 const { getFavMuseum,
         saveFavMuseum,
-        deleteFavMuseum } = require('../models/favorites');
+        deleteFavMuseum,
+        editMuseum, } = require('../models/favorites');
 
 router.get('/', authenticate, getFavMuseum, (req, res) => {
   res.render('museums/index', {
@@ -20,6 +21,14 @@ router.post('/search', authenticate, getMuseum, getFavMuseum, (req, res) => {
     favorites: res.getFavMuseum || []
   });
   // res.json(res.museum);
+});
+
+router.get('/edit/:id', getMuseum, (req,res) => {
+  res.render('museums/edit', {museum: res.museum});
+});
+
+router.put('/:id', editMuseum, (req, res) => {
+  res.redirect('museums');
 });
 
 router.post('/favorites', saveFavMuseum, (req, res) => {

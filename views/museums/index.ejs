@@ -28,6 +28,7 @@
         <h2>Museum Name: <%= museum[i].name %></h2>
         <h2> Address: <%= museum[i].adress1 %></h2>
         <h2> URL: <%= museum[i].url %></h2>
+        <a href="/museums/edit/<%= museum[i]._id %>">Edit</a>
         <form action="/museums/favorites" method="POST">
           <input type="hidden" name="favorite[name]" value="<%= museum[i].name %>">
           <input type="hidden" name="favorite[adress1]" value="<%= museum[i].adress1 %>">
