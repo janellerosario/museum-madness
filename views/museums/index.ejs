@@ -18,25 +18,24 @@
   </nav>
   <div class="search">
     <h1>Search</h1>
-    <p>Check em off!</p>
-    <p>Search by city: New York, Bronx,<br>
-    Queens, Long Island City, Brooklyn<br>
-    or .....Staten Island</p>
+    <p>Check em off! Search by city: New York, Bronx,<br>
+    Queens, Long Island City, Brooklyn or..... Staten Island</p>
     <form action="/museums/search" method="POST">
       <input type="text" name="city" placeholder="Enter city"><br>
       <input type="submit" value="search!">
     </form>
   </div>
   <h1>Results</h1>
+  <p>Been there, done that? Mark visited + add memories!</p>
   <div class="results">
-     <ul>
+     <ol>
       <% for( let i = 0; i < museum.length; i++) {%>
       <li class="museum-choices">
         <h3><%= museum[i].name %></h3>
         <p> Address: <%= museum[i].adress1 %></p>
         <p> URL: <%= museum[i].url %></p>
       </li>
-      </ul>
+      </ol>
         <form action="/museums/favorites" method="POST">
           <input type="hidden" name="favorite[name]" value="<%= museum[i].name %>">
           <input type="hidden" name="favorite[adress1]" value="<%= museum[i].adress1 %>">
@@ -46,6 +45,7 @@
       <% }; %>
   </div>
   <h1>Museums Visited</h1>
+  <p>click edit to add in your favorite memory!</p>
   <div class="museum-list">
     <ol>
       <% for (let i = 0; i < favorites.length; i++) { %>
@@ -53,13 +53,14 @@
           <h3><%= favorites[i].name %></h3>
           <p>Address: <%= favorites[i].adress1 %></p>
           <p>URL: <%= favorites[i].url %></p>
-        </li>
+          <p>Memory: <%= favorites[i].address2 %></p>
+          </li>
+        </ol>
         <a href="/museums/edit/<%= favorites[i]._id %>">edit</a>
         <form action="/museums/favorites/<%= favorites[i]._id %>?_method=DELETE" method="POST">
           <input type="submit" value="delete">
         </form>
       <% }; %>
-    </ol>
   </div>
 </div>
 </body>
