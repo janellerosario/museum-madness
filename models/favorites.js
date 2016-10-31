@@ -56,7 +56,7 @@ function deleteFavMuseum(req, res, next) {
 
 function editMuseum(req, res, next) {
     getDB().then((db) => {
-    db.collection('museums')
+    db.collection('fav_museums')
       .findAndModify({ _id: ObjectID(req.params.id) }, [] /* sort */,
       { $set: req.body.museum }, { new: true } /* options */, (updateError, doc) => {
         if (updateError) return next(updateError);
@@ -71,4 +71,20 @@ function editMuseum(req, res, next) {
   return false;
 }
 
-module.exports = { saveFavMuseum, getFavMuseum, deleteFavMuseum, editMuseum }
+function saveMuseumEdit(req, res, next) {
+    getDB().then((db) => {
+    db.collection('fav_museums')
+      .findOne({ _id: ObjectID(req.params.id) }, (findErr, newmuseum) => {
+        if (findErr) return next(findErr);
+
+        // return the data
+        res.newmuseum = newmuseum;
+        db.close();
+        return next();
+      });
+    return false;
+  });
+  return false;
+}
+
+module.exports = { saveFavMuseum, getFavMuseum, deleteFavMuseum, editMuseum, saveMuseumEdit }

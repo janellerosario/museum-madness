@@ -4,7 +4,8 @@ const { getMuseum } = require('../services/museumDB');
 const { getFavMuseum,
         saveFavMuseum,
         deleteFavMuseum,
-        editMuseum, } = require('../models/favorites');
+        editMuseum,
+        saveMuseumEdit } = require('../models/favorites');
 
 router.get('/', authenticate, getFavMuseum, (req, res) => {
   res.render('museums/index', {
@@ -23,18 +24,17 @@ router.post('/search', authenticate, getMuseum, getFavMuseum, (req, res) => {
   // res.json(res.museum);
 });
 
-router.get('/edit/:id', getMuseum, (req,res) => {
-  res.render('museums/edit', {museum: res.museum});
+router.get('/edit/:id', saveMuseumEdit, (req,res) => {
+  res.render('museums/edit', { newmuseum: res.newmuseum });
 });
 
 router.put('/:id', editMuseum, (req, res) => {
-  res.redirect('museums');
+  res.redirect('/museums');
 });
 
 router.post('/favorites', saveFavMuseum, (req, res) => {
   res.redirect('/museums')
 });
-
 
 router.delete('/favorites/:name', deleteFavMuseum, (req, res) => {
   res.redirect('/museums')
