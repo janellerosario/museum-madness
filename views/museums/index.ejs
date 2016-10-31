@@ -5,17 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Museum Madness | Visit All NYC Museums</title>
   <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div class="container">
   <div class="header">
     <h1>Museum Madness</h1>
   </div>
+  <nav>
+  <a href="/">Home</a>
+  <a href="/users/profile">Back to Profile</a>
+  </nav>
   <div class="search">
     <h1>Search</h1>
-    <p>Search and add to your bucket list!<br>
-    Search by city: New York, Bronx, Queens, Long Island City, Brooklyn, or .....Staten Island</p>
+    <p>Check em off!</p>
+    <p>Search by city: New York, Bronx,<br>
+    Queens, Long Island City, Brooklyn<br>
+    or .....Staten Island</p>
     <form action="/museums/search" method="POST">
       <input type="text" name="city" placeholder="Enter city"><br>
       <input type="submit" value="search!">
@@ -25,35 +31,36 @@
   <div class="results">
      <ul>
       <% for( let i = 0; i < museum.length; i++) {%>
-        <h2>Museum Name: <%= museum[i].name %></h2>
-        <h2> Address: <%= museum[i].adress1 %></h2>
-        <h2> URL: <%= museum[i].url %></h2>
-        <a href="/museums/edit/<%= museum[i]._id %>">Edit</a>
+      <li class="museum-choices">
+        <h3><%= museum[i].name %></h3>
+        <p> Address: <%= museum[i].adress1 %></p>
+        <p> URL: <%= museum[i].url %></p>
+      </li>
+      </ul>
         <form action="/museums/favorites" method="POST">
           <input type="hidden" name="favorite[name]" value="<%= museum[i].name %>">
           <input type="hidden" name="favorite[adress1]" value="<%= museum[i].adress1 %>">
           <input type="hidden" name="favorite[url]" value="<%= museum[i].url %>">
-          <input type="submit" value="save">
+          <input type="submit" value="mark visited">
         </form>
       <% }; %>
-      </ul>
   </div>
-  <h1>My Bucket List</h1>
-  <div class="fit-list">
-    <ul>
+  <h1>Museums Visited</h1>
+  <div class="museum-list">
+    <ol>
       <% for (let i = 0; i < favorites.length; i++) { %>
-        <li>
-          <p>Museum Name: <%= favorites[i].name %></p>
+        <li class='train-stops'>
+          <h3><%= favorites[i].name %></h3>
           <p>Address: <%= favorites[i].adress1 %></p>
           <p>URL: <%= favorites[i].url %></p>
         </li>
+        <a href="/museums/edit/<%= favorites[i]._id %>">edit</a>
         <form action="/museums/favorites/<%= favorites[i]._id %>?_method=DELETE" method="POST">
-          <input type="submit" value="Delete">
+          <input type="submit" value="delete">
         </form>
       <% }; %>
-    </ul>
+    </ol>
   </div>
 </div>
-<a href="/users/profile">Home</a>
 </body>
 </html>

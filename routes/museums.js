@@ -10,7 +10,7 @@ router.get('/', authenticate, getFavMuseum, (req, res) => {
   res.render('museums/index', {
     user: res.user,
     museum: res.museum || [],
-    favorites: res.getFavMuseum || []
+    favorites: res.getFavMuseum || [],
   });
 });
 
@@ -18,7 +18,7 @@ router.post('/search', authenticate, getMuseum, getFavMuseum, (req, res) => {
   res.render('museums/index', {
     user: res.user,
     museum: res.museum || [],
-    favorites: res.getFavMuseum || []
+    favorites: res.getFavMuseum || [],
   });
   // res.json(res.museum);
 });
@@ -32,8 +32,9 @@ router.put('/:id', editMuseum, (req, res) => {
 });
 
 router.post('/favorites', saveFavMuseum, (req, res) => {
-  res.redirect("/museums")
+  res.redirect('/museums')
 });
+
 
 router.delete('/favorites/:name', deleteFavMuseum, (req, res) => {
   res.redirect('/museums')

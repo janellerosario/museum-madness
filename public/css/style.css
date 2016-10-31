@@ -1,13 +1,19 @@
 body {
-  background-color: dimgray;
-  height: 1000px;
-  width: 1000px;
+  background-color: dimgrey;
+  border: 6px black;
   font-family: 'PT Sans Narrow', sans-serif;
 }
 
-.container,
-nav {
+.container {
   margin-left: 30%;
+}
+
+.train-stops {
+  list-style-image: url(/images/q-train.png);
+}
+
+.museum-choices {
+  list-style-image: url(/images/n-train.png);
 }
 
 .header {
@@ -15,7 +21,7 @@ nav {
 }
 
 .search {
-  font-size: 18px;
+  font-size: 20px;
 
 }
 
