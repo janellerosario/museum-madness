@@ -18,15 +18,15 @@
   </nav>
   <div class="search">
     <h1>Search</h1>
-    <p>Check em off! Search by city: New York, Bronx,<br>
-    Queens, Long Island City, Brooklyn or..... Staten Island</p>
+    <h3>Check em off! Search by city: New York, Bronx,<br>
+    Queens, Long Island City, Brooklyn or..... Staten Island</h3>
     <form action="/museums/search" method="POST">
       <input type="text" name="city" placeholder="Enter city"><br>
       <input type="submit" value="search!">
     </form>
   </div>
   <h1>Results</h1>
-  <p>Been there, done that? Mark visited + add memories!</p>
+  <h3>Been there, done that? Mark visited + add memories!</h3>
   <div class="results">
      <ol>
       <% for( let i = 0; i < museum.length; i++) {%>
@@ -46,11 +46,11 @@
       <% }; %>
   </div>
   <h1>Museums Visited</h1>
-  <p>click edit to add in your favorite memory!</p>
+  <h3>click edit to add in your favorite memory!</h3>
   <div class="museum-list">
     <ol>
       <% for (let i = 0; i < favorites.length; i++) { %>
-        <li class='train-stops'>
+        <li class='visited-list'>
           <h3><%= favorites[i].name %></h3>
           <p>Address: <%= favorites[i].adress1 %></p>
           <p>URL: <%= favorites[i].url %></p>

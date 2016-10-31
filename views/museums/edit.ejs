@@ -2,9 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Edit Museum</title>
   </head>
   <body>
+  <h1>Add your memory, what you want to see next & when etc.</h1>
     <form class="edit" action="<%= newmuseum._id %>?_method=PUT" method="POST">
       <input type="text" name="newmuseum[address2]" value="<%= newmuseum.address2 %>">
       <input type="submit" value="Update">
