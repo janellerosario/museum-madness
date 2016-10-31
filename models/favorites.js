@@ -58,7 +58,7 @@ function editMuseum(req, res, next) {
     getDB().then((db) => {
     db.collection('fav_museums')
       .findAndModify({ _id: ObjectID(req.params.id) }, [] /* sort */,
-      { $set: req.body.museum }, { new: true } /* options */, (updateError, doc) => {
+      { $set: req.body.newmuseum }, { new: true } /* options */, (updateError, doc) => {
         if (updateError) return next(updateError);
 
         // return the data

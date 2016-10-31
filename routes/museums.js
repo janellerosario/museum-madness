@@ -28,7 +28,7 @@ router.get('/edit/:id', saveMuseumEdit, (req,res) => {
   res.render('museums/edit', { newmuseum: res.newmuseum });
 });
 
-router.put('/:id', editMuseum, (req, res) => {
+router.put('/edit/:id', editMuseum, (req, res) => {
   res.redirect('/museums');
 });
 
