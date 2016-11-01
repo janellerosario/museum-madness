@@ -26,6 +26,9 @@ Goal: GO EXPLORE! Visit all of the museums in New York :)
 - API: NYC Open Data NYC Museum Locations https://data.cityofnewyork.us/Recreation/New-York-City-Museums/ekax-ky3z
 - NODE
 - Express
+- HTML
+- CSS
+- Heroku
 
 ## Struggles:
 - creating another list for museums to visit that works properly
