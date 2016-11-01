@@ -1,6 +1,6 @@
 /* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
 /* eslint no-param-reassign: ["error", { "props": false }] */
-
+// code provided by Bobby King // GA
 const express    = require('express');
 const { logIn }  = require('../lib/auth');
 

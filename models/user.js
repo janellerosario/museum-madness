@@ -1,6 +1,6 @@
 /* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
 /* eslint no-param-reassign: ["error", { "props": false }] */
-
+// code provided by Bobby King // GA
 const { ObjectID } = require('mongodb');
 const { getDB }    = require('../lib/dbConnect.js');
 const bcrypt       = require('bcryptjs');
@@ -20,7 +20,6 @@ function createUser(req, res, next) {
     db.collection('users')
       .insert(userObject, (insertErr, dbUser) => {
         if (insertErr) return next(insertErr);
-
         res.user = dbUser;
         db.close();
         return next();

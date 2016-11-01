@@ -10,12 +10,13 @@ function saveFavMuseum(req,res,next) {
   }
   // Adding userId to insertObj
   insertObj.favorite.userId = req.session.userId;
+  // connect to database
     getDB().then((db) => {
     console.log(req.body.favorite);
     db.collection('fav_museums')
       .insert(insertObj.favorite, (insertErr, result) => {
         if (insertErr) return next(insertErr);
-        // return data
+  // return data
         res.savedMuseums = result;
         db.close();
         return next();
@@ -26,12 +27,13 @@ function saveFavMuseum(req,res,next) {
 };
 
 function getFavMuseum(req, res, next) {
-getDB().then((db) => {
+    getDB().then((db) => {
     db.collection('fav_museums')
+  // associate favorite with user
       .find({ userId: { $eq: req.session.userId } })
       .toArray((arrayError, data) => {
         if (arrayError) return next(arrayError);
-        // return data
+  // return data
         res.getFavMuseum = data;
         db.close();
         return next();
@@ -46,7 +48,7 @@ function deleteFavMuseum(req, res, next) {
     db.collection('fav_museums')
       .findAndRemove({ _id: ObjectID(req.params.name) }, (removeErr, doc) => {
         if (removeErr) return next(removeErr);
-        // return data
+  // return data
         res.deleteFavMuseum = doc;
         db.close();
         return next();
@@ -59,10 +61,11 @@ function deleteFavMuseum(req, res, next) {
 function editMuseum(req, res, next) {
     getDB().then((db) => {
     db.collection('fav_museums')
+  // find and edit entry
       .findAndModify({ _id: ObjectID(req.params.id) }, [] /* sort */,
       { $set: req.body.newmuseum }, { new: true } /* options */, (updateError, doc) => {
         if (updateError) return next(updateError);
-        // return the data
+  // return the data
         res.updated = doc;
         db.close();
         return next();
@@ -77,7 +80,7 @@ function saveMuseumEdit(req, res, next) {
     db.collection('fav_museums')
       .findOne({ _id: ObjectID(req.params.id) }, (findErr, newmuseum) => {
         if (findErr) return next(findErr);
-        // return the data
+  // return the data
         res.newmuseum = newmuseum;
         db.close();
         return next();

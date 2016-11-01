@@ -7,34 +7,27 @@ body {
   margin-left: 30%;
 }
 
-.visited-list {
-  list-style-image: url(/images/q-train.png);
+.header {
+  font-size: 40px;
 }
 
 .museum-choices {
   list-style-image: url(/images/n-train.png);
 }
 
-.header {
-  font-size: 40px;
+.museum-list,
+.results {
+  font-size: 18px;
+  text-align: center;
+  overflow-y: auto;
+  width: 500px;
+  height: 300px;
 }
 
 .search {
   font-size: 18px;
 }
 
-.results {
-  font-size: 18px;
-  text-align: center;
-  overflow-y: auto;
-  height: 300px;
-  width: 500px;
-}
-
-.museum-list {
-  font-size: 18px;
-  text-align: center;
-  overflow-y: auto;
-  width: 500px;
-  height: 300px;
+.visited-list {
+  list-style-image: url(/images/q-train.png);
 }
